@@ -26,19 +26,20 @@ class WalletProvider extends ChangeNotifier {
       EthereumAddress.fromHex("0xc2b78104907F722DABAc4C69f826a522B2754De4");
 
   final salt = Uint256.zero;
-  static const rpc =
-      "https://api.pimlico.io/v2/123/rpc?apikey=${"PIMLICO_API_KEY"}";
+
+  static const rpc = "";
 
   WalletProvider()
       : _chain = Chain(
-            bundlerUrl: rpc,
-            // paymasterUrl: rpc, // for fuse network, not really working.
-            testnet: true,
-            chainId: 123,
-            jsonRpcUrl: "https://rpc.fusespark.io",
-            accountFactory: Constants.safeProxyFactoryAddress,
-            explorer: "https://explorer.fusespark.io/",
-            entrypoint: EntryPointAddress.v07);
+          bundlerUrl: rpc,
+          paymasterUrl: rpc, // for fuse network, not really working.
+          testnet: true,
+          chainId: 4202,
+          jsonRpcUrl: "https://rpc.sepolia-api.lisk.com",
+          accountFactory: Constants.safeProxyFactoryAddress,
+          explorer: "https://sepolia-blockscout.lisk.com/",
+          entrypoint: EntryPointAddress.v07,
+        );
 
   Future<void> registerWithPassKey(String name,
       {bool? requiresUserVerification}) async {
